@@ -21,19 +21,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import environ
 import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-
-
-# SECURITY KEY
+# SECURITY
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+# ALLOWED HOSTS
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 # Application definition
