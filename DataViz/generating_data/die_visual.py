@@ -1,6 +1,6 @@
 import plotly.express as px
 
-from DataViz.generating_data.die import Die
+from die import Die
 
 # Create two D6 dice.
 die_1 = Die()
